@@ -9,8 +9,10 @@ namespace TesteOO
     {
         static void Main(string[] args)
         {
+            TesteObjetoPessoa();
 
-            //TesteOOFelino();
+            /*
+            TesteOOFelino();
             //Exemplo 1 Herança e polimorfismo
             HerancaPolimorfismo();
 
@@ -20,14 +22,14 @@ namespace TesteOO
             // Exemplo 4 - Iteração com List<T>
             TesteList();
 
-            /* //Exemplo 5 - Teste Queue<T>
-             TesteQueueT();*/
+            //Exemplo 5 - Teste Queue<T>
+             TesteQueueT();
 
             //Exemplo 6 - SortedList < Tkey,Tvalue >
             TesteSortedListT();
 
-            /* //Exemplo 7 - Stack<T>
-             TesteStackT();*/
+            //Exemplo 7 - Stack<T>
+             TesteStackT();
 
             //Exemplo 8 - ArrayList
             TesteArrayList();
@@ -41,9 +43,30 @@ namespace TesteOO
             //Exemplo 11 - Stack
             TesteStack();
 
-
+            */
 
             Console.ReadLine();
+        }
+
+        static void TesteObjetoPessoa()
+        {
+            clsPessoa pessFisica = new clsPessoaFisica();
+            //segunda forma de instanciar objeto
+            clsPessoaFisica pf = new clsPessoaFisica();
+            //terceira forma de instanciar objeto
+            var pessFisi = new clsPessoaFisica();
+
+            pessFisica.DataNascimentoFundacao = new DateTime(1980, 12, 01);
+            pessFisica.Nome = "Teste";
+
+
+            var pessJuridica = new clsPessoaJuridica();
+            pessJuridica.Nome = "Empresa ABC";
+            pessJuridica.CNPJ = "00000000000000";
+            pessJuridica.DataNascimentoFundacao = new DateTime(2000, 05, 20);
+
+            Console.WriteLine("A pessoa " + pessFisica.Nome + " nasceu em " + pessFisica.DataNascimentoFundacao.ToString("d"));
+            Console.WriteLine(pessFisica.Crescer());
         }
         /// <summary>
         /// Exemplo 11 - Stack

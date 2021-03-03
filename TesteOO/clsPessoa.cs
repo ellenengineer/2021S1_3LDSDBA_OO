@@ -9,11 +9,15 @@ namespace TesteOO
         protected DateTime _dataNascimento;
         public DateTime DataNascimentoFundacao { get; set; }
 
+        public clsPessoa(DateTime _dtNasc)
+        {
+            this.DataNascimentoFundacao = _dtNasc;
+        }
 
         public clsPessoa() => (DataNascimentoFundacao) = (_dataNascimento);
         public override string Nascer(DateTime _dataNascimento)
         {
-            return string.Concat(Nome, " nasceu em ", _dataNascimento);
+            return string.Concat(this.Nome, " nasceu em ", _dataNascimento);
         }
 
 
@@ -25,6 +29,11 @@ namespace TesteOO
         public override string Crescer()
         {
             return "Cresceu!";
+        }
+
+        protected string Caminhar()
+        {
+            return "Caminhando";
         }
 
     }

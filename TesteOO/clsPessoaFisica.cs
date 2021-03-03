@@ -5,9 +5,14 @@ namespace TesteOO
 {
     public class clsPessoaFisica: clsPessoa
     {
+        string _rg;
         public string CPF { get; set; }
 
-
+        public string RG
+        { 
+            get { return _rg; }
+            set { this._rg = value; }
+        }
 
         public clsPessoaFisica()
         {
@@ -31,7 +36,8 @@ namespace TesteOO
 
         public override string Crescer()
         {
-            return Nome + " Cresceu bem !";
+            return Nome + " está " + this.Caminhar() + " Cresceu bem !";
         }
+
     }
 }
