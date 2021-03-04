@@ -9,41 +9,40 @@ namespace TesteOO
     {
         static void Main(string[] args)
         {
-            TesteObjetoPessoa();
+            // TesteObjetoPessoa();
 
-            /*
-            TesteOOFelino();
+            //TesteOOFelino();
             //Exemplo 1 Herança e polimorfismo
-            HerancaPolimorfismo();
+            // HerancaPolimorfismo();
 
             //Exemplo 2 - Teste de Dictionary<int,value>
-            TesteDictionary();
+            //TesteDictionary();
 
             // Exemplo 4 - Iteração com List<T>
-            TesteList();
+            // TesteList();
 
             //Exemplo 5 - Teste Queue<T>
-             TesteQueueT();
+            //TesteQueueT();
 
             //Exemplo 6 - SortedList < Tkey,Tvalue >
-            TesteSortedListT();
+            // TesteSortedListT();
 
             //Exemplo 7 - Stack<T>
-             TesteStackT();
+            //TesteStackT();
 
             //Exemplo 8 - ArrayList
-            TesteArrayList();
+            // TesteArrayList();
 
             //Exemplo 9 - HashTable
-            TesteHashTable();
+            //TesteHashTable();
 
             //Exemplo 10 - Queue
-            TesteQueue();
+            // TesteQueue();
 
             //Exemplo 11 - Stack
             TesteStack();
 
-            */
+
 
             Console.ReadLine();
         }
@@ -110,6 +109,8 @@ namespace TesteOO
             queuePF.Enqueue(new clsPessoaFisica("Chun Li", new DateTime(2014, 02, 03)));
             queuePF.Enqueue(new clsPessoaFisica("Sindel", new DateTime(2014, 04, 07)));
 
+            // queuePF.Enqueue("Mais um");
+
             // Displays the properties and values of the Queue.
             Console.WriteLine("Queue");
             Console.WriteLine("\nQtde:    {0}", queuePF.Count);
@@ -137,16 +138,17 @@ namespace TesteOO
             htPessoaFisica.Add(5, new clsPessoaFisica("Chun Li", new DateTime(2014, 02, 03)));
             htPessoaFisica.Add(6, new clsPessoaFisica("Sindel", new DateTime(2014, 04, 07)));
 
+            //  htPessoaFisica.Add(11, "Teste");
 
-            /*//teste tentando adicionar item ja existente
-            htPessoaFisica.Add(1, new clsPessoaFisica("Fulano", new DateTime(1980, 05, 30)));*/
+            /* //teste tentando adicionar item ja existente
+             htPessoaFisica.Add(1, new clsPessoaFisica("Fapen", new DateTime(1980, 05, 30)));*/
 
 
             //obtendo um unico item
-            Console.WriteLine("chave = \"5\", value = {0}.", htPessoaFisica[5]);
+            Console.WriteLine("chave = \"5\", value = {0}.", ((clsPessoaFisica)htPessoaFisica[5]).Nome);
 
 
-            htPessoaFisica[5] = new clsPessoaFisica("Ryu", new DateTime(2014, 02, 13)); ;
+            htPessoaFisica[5] = new clsPessoaFisica("Ryu", new DateTime(2014, 02, 13));
             Console.WriteLine("chave key = \"5\", value = {0}.", ((clsPessoaFisica)htPessoaFisica[5]).Nome);
 
             // If a key does not exist, setting the default Item property
@@ -214,23 +216,36 @@ namespace TesteOO
             alPessoaFisica.Add(new clsPessoaFisica("Chun Li", new DateTime(2014, 02, 03)));
             alPessoaFisica.Add(new clsPessoaFisica("Sindel", new DateTime(2014, 04, 07)));
 
-            // Imprime valores do ArrayList.
-            Console.WriteLine("Array List Pessoa Fisica");
-            Console.WriteLine("    Total Itens:    {0}", alPessoaFisica.Count);
-            Console.WriteLine("    Capacidade: {0}", alPessoaFisica.Capacity);
-            Console.Write("    \nValores com object:");
-            foreach (Object obj in alPessoaFisica)
-                Console.Write("   {0}", ((clsPessoaFisica)obj).Nome);
+            //  alPessoaFisica.Add("Teste");
 
-
-            Console.Write("    \nValores com clsPessoaFisica:");
-            foreach (clsPessoaFisica objPF in alPessoaFisica)
-                Console.Write("   {0}", objPF.Nome);
-
-            Console.WriteLine("Com var...");
-            foreach (var item in alPessoaFisica)
+            try
             {
-                Console.WriteLine(" {0}", ((clsPessoaFisica)item).Nome);
+                // Imprime valores do ArrayList.
+                Console.WriteLine("Array List Pessoa Fisica");
+                Console.WriteLine("    Total Itens:    {0}", alPessoaFisica.Count);
+                Console.WriteLine("    Capacidade: {0}", alPessoaFisica.Capacity);
+                Console.Write("    \nValores com object:");
+
+                foreach (Object obj in alPessoaFisica)
+                    Console.WriteLine("   {0}", ((clsPessoaFisica)obj).Nome);
+
+                Console.Write("    \nValores com clsPessoaFisica:");
+                foreach (clsPessoaFisica objPF in alPessoaFisica)
+                    Console.WriteLine("   {0}", objPF.Nome);
+
+                Console.WriteLine("Com var...");
+                foreach (var item in alPessoaFisica)
+                {
+                    Console.WriteLine(" {0}", ((clsPessoaFisica)item).Nome);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Existe um item incluso que não é do tipo clsPEssoaFisica!");
+            }
+            finally
+            {
+                Console.WriteLine("Fim da execução");
             }
 
         }
